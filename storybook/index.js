@@ -1,4 +1,5 @@
 import {getStorybookUI, configure} from '@storybook/react-native';
+import '@react-native-community/async-storage';
 
 import './rn-addons';
 
@@ -7,6 +8,8 @@ configure(() => {
   require('./stories');
 }, module);
 
-const StorybookUIRoot = getStorybookUI({});
+const StorybookUIRoot = getStorybookUI({
+  asyncStorage: require('@react-native-community/async-storage').default,
+});
 
 export default StorybookUIRoot;
